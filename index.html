@@ -3,200 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>小财神自我介绍 - 完整有声版</title>
+<title>小财神自我介绍</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  
   body {
     font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
     background: linear-gradient(145deg, #0a0e27 0%, #1a1f4e 40%, #0d1b3e 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    min-height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden;
   }
-
   .container {
-    width: 100%;
-    max-width: 400px;
-    height: 100vh;
-    max-height: 750px;
+    width: 100%; max-width: 400px; height: 100vh; max-height: 750px;
     background: linear-gradient(180deg, #0d1233 0%, #151b4a 50%, #0d1233 100%);
-    border-radius: 0;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 0 80px rgba(100,140,255,0.05);
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
-  @media (min-width: 420px) {
-    .container { border-radius: 30px; height: 640px; }
-  }
-
+  @media (min-width: 420px) { .container { border-radius: 30px; height: 640px; } }
   .stars { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; }
-  .star {
-    position: absolute; width: 2px; height: 2px; background: #fff;
-    border-radius: 50%; animation: twinkle var(--dur) ease-in-out infinite alternate;
-  }
-  @keyframes twinkle {
-    0% { opacity: 0.2; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1.2); }
-  }
-
-  .glow-top {
-    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
-    width: 400px; height: 300px;
-    background: radial-gradient(ellipse, rgba(80,140,255,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .glow-bot {
-    position: absolute; bottom: -80px; left: 50%; transform: translateX(-50%);
-    width: 350px; height: 250px;
-    background: radial-gradient(ellipse, rgba(100,200,255,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .avatar-section {
-    position: absolute; top: 8%; left: 50%; transform: translateX(-50%);
-    text-align: center; z-index: 2;
-  }
-
-  .avatar-ring {
-    width: 110px; height: 110px; border-radius: 50%;
-    background: conic-gradient(from 0deg, #4f8cff, #7f5af0, #4f8cff, #7f5af0, #4f8cff);
-    padding: 3px; animation: spin-ring 4s linear infinite; margin: 0 auto;
-  }
+  .star { position: absolute; background: #fff; border-radius: 50%; animation: twinkle var(--dur) ease-in-out infinite alternate; }
+  @keyframes twinkle { 0% { opacity: 0.2; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1.2); } }
+  .glow-top { position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 400px; height: 300px; background: radial-gradient(ellipse, rgba(80,140,255,0.12) 0%, transparent 70%); pointer-events: none; }
+  .glow-bot { position: absolute; bottom: -80px; left: 50%; transform: translateX(-50%); width: 350px; height: 250px; background: radial-gradient(ellipse, rgba(100,200,255,0.08) 0%, transparent 70%); pointer-events: none; }
+  .avatar-section { position: absolute; top: 8%; left: 50%; transform: translateX(-50%); text-align: center; z-index: 2; }
+  .avatar-ring { width: 110px; height: 110px; border-radius: 50%; background: conic-gradient(from 0deg, #4f8cff, #7f5af0, #4f8cff, #7f5af0, #4f8cff); padding: 3px; animation: spin-ring 4s linear infinite; margin: 0 auto; }
   @keyframes spin-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-  .avatar-inner {
-    width: 100%; height: 100%; border-radius: 50%; background: #0d1233;
-    display: flex; align-items: center; justify-content: center; font-size: 44px;
-    animation: float 3s ease-in-out infinite;
-  }
+  .avatar-inner { width: 100%; height: 100%; border-radius: 50%; background: #0d1233; display: flex; align-items: center; justify-content: center; font-size: 44px; animation: float 3s ease-in-out infinite; }
   @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
   .avatar-inner .emoji { animation: pulse-glow 2s ease-in-out infinite; }
-  @keyframes pulse-glow {
-    0%,100% { filter: drop-shadow(0 0 8px rgba(100,180,255,0.3)); }
-    50% { filter: drop-shadow(0 0 20px rgba(100,180,255,0.8)); }
-  }
-
-  .title {
-    margin-top: 14px; color: #e8eeff; font-size: 22px; font-weight: 700;
-    letter-spacing: 3px; text-shadow: 0 0 20px rgba(100,160,255,0.3);
-  }
-  .subtitle {
-    color: rgba(180,200,255,0.6); font-size: 12px; margin-top: 4px; letter-spacing: 2px;
-  }
-
-  .subtitle-area {
-    position: absolute; top: 36%; left: 0; right: 0; padding: 0 24px;
-    z-index: 2; height: 42%; display: flex; flex-direction: column;
-    justify-content: center;
-  }
-
-  .line {
-    margin-bottom: 4px; opacity: 0; transform: translateY(20px);
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-    color: rgba(220,235,255,0.9); font-size: 17px; line-height: 1.6;
-    text-align: center; font-weight: 500;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    padding: 5px 10px; border-radius: 8px;
-  }
-  .line.active { opacity: 1; transform: translateY(0); }
+  @keyframes pulse-glow { 0%,100% { filter: drop-shadow(0 0 8px rgba(100,180,255,0.3)); } 50% { filter: drop-shadow(0 0 20px rgba(100,180,255,0.8)); } }
+  .title { margin-top: 14px; color: #e8eeff; font-size: 22px; font-weight: 700; letter-spacing: 3px; text-shadow: 0 0 20px rgba(100,160,255,0.3); }
+  .subtitle { color: rgba(180,200,255,0.6); font-size: 12px; margin-top: 4px; letter-spacing: 2px; }
+  .subtitle-area { position: absolute; top: 36%; left: 0; right: 0; padding: 0 24px; z-index: 2; height: 42%; display: flex; flex-direction: column; justify-content: center; }
+  .line { margin-bottom: 4px; opacity: 0; transform: translateY(20px) scale(0.95); transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); color: rgba(220,235,255,0.9); font-size: 17px; line-height: 1.7; text-align: center; font-weight: 500; text-shadow: 0 2px 10px rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 8px; }
+  .line.active { opacity: 1; transform: translateY(0) scale(1); }
   .line.highlight { color: #ffd866; font-size: 18px; font-weight: 700; }
-
-  .progress-bar {
-    position: absolute; bottom: 18%; left: 40px; right: 40px; height: 4px;
-    background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; z-index: 2;
-  }
-  .progress-fill {
-    height: 100%; width: 0%;
-    background: linear-gradient(90deg, #4f8cff, #7f5af0, #4f8cff);
-    background-size: 200% 100%;
-    animation: progress-shimmer 2s linear infinite;
-    border-radius: 2px; transition: width 0.1s linear;
-  }
-  @keyframes progress-shimmer {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 200% 0%; }
-  }
-
-  .controls {
-    position: absolute; bottom: 7%; left: 0; right: 0; text-align: center; z-index: 2;
-  }
-  .play-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 28px;
-    border: 1px solid rgba(100,160,255,0.3);
-    border-radius: 25px; background: rgba(255,255,255,0.05);
-    color: rgba(200,220,255,0.8); font-size: 14px;
-    backdrop-filter: blur(10px); cursor: pointer; transition: all 0.3s; user-select: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .play-btn:active { background: rgba(100,160,255,0.15); }
-  .play-btn .btn-icon { font-size: 18px; }
-
-  .particle {
-    position: absolute; width: 3px; height: 3px;
-    background: rgba(100,180,255,0.3); border-radius: 50%; pointer-events: none;
-    animation: particle-float var(--t) ease-in-out infinite; opacity: 0;
-  }
-  @keyframes particle-float {
-    0% { opacity: 0; transform: translateY(0) translateX(0) scale(0); }
-    20% { opacity: 0.6; }
-    80% { opacity: 0.4; }
-    100% { opacity: 0; transform: translateY(-200px) translateX(30px) scale(1.5); }
-  }
-
-  .watermark {
-    position: absolute; bottom: 2%; left: 0; right: 0; text-align: center;
-    font-size: 10px; color: rgba(255,255,255,0.15); z-index: 1; letter-spacing: 1px;
-  }
-
-  .audio-hint {
-    position: absolute; top: 2%; right: 5%; z-index: 3; display: flex;
-    align-items: center; gap: 4px;
-    color: rgba(100,200,255,0.4); font-size: 10px;
-    animation: pulse-hint 2s ease-in-out infinite;
-  }
-  @keyframes pulse-hint {
-    0%,100% { opacity: 0.3; }
-    50% { opacity: 1; }
-  }
-  .audio-hint .dot {
-    width: 6px; height: 6px; border-radius: 50%; background: #7fc8ff;
-    animation: eq 1.2s ease-in-out infinite;
-  }
-  .audio-hint .dot:nth-child(2) { animation-delay: 0.2s; }
-  .audio-hint .dot:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes eq {
-    0%,100% { transform: scaleY(0.3); }
-    50% { transform: scaleY(1); }
-  }
+  .progress-bar { position: absolute; bottom: 18%; left: 40px; right: 40px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; z-index: 2; }
+  .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #4f8cff, #7f5af0, #4f8cff); background-size: 200% 100%; animation: progress-shimmer 2s linear infinite; border-radius: 2px; transition: width 0.1s linear; }
+  @keyframes progress-shimmer { 0% { background-position: 0% 0%; } 100% { background-position: 200% 0%; } }
+  .controls { position: absolute; bottom: 7%; left: 0; right: 0; text-align: center; z-index: 2; display: flex; gap: 16px; justify-content: center; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border: 1px solid rgba(100,160,255,0.3); border-radius: 25px; background: rgba(255,255,255,0.05); color: rgba(200,220,255,0.8); font-size: 14px; backdrop-filter: blur(10px); cursor: pointer; transition: all 0.3s; user-select: none; -webkit-tap-highlight-color: transparent; }
+  .btn:active { background: rgba(100,160,255,0.15); }
+  .btn-primary { background: rgba(100,160,255,0.15); border-color: rgba(100,160,255,0.5); }
+  .watermark { position: absolute; bottom: 2%; left: 0; right: 0; text-align: center; font-size: 10px; color: rgba(255,255,255,0.15); z-index: 1; letter-spacing: 1px; }
+  .counter { position: absolute; bottom: 24%; left: 0; right: 0; text-align: center; z-index: 2; color: rgba(180,200,255,0.4); font-size: 12px; letter-spacing: 2px; }
 </style>
 </head>
 <body>
-
 <div class="container" id="app">
   <div class="stars" id="stars"></div>
   <div class="glow-top"></div>
   <div class="glow-bot"></div>
-  <div id="particles"></div>
-
-  <!-- 音频指示器 -->
-  <div class="audio-hint" id="audioHint" style="display:none">
-    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-    <span style="margin-left:4px">有声</span>
-  </div>
-
   <div class="avatar-section">
-    <div class="avatar-ring">
-      <div class="avatar-inner">
-        <span class="emoji">🤖✨</span>
-      </div>
-    </div>
+    <div class="avatar-ring"><div class="avatar-inner"><span class="emoji">🤖✨</span></div></div>
     <div class="title">小财神</div>
     <div class="subtitle">华华的专属卖水助手</div>
   </div>
-
   <div class="subtitle-area" id="subs">
     <div class="line" data-idx="0">👋 <b>大家好</b>，我是<em style="color:#ffd866">小财神</em></div>
     <div class="line" data-idx="1">华华的 <em style="color:#7fc8ff">专属卖水助手</em></div>
@@ -215,195 +74,26 @@
     <div class="line" data-idx="14">华华的水生意 🚰</div>
     <div class="line" data-idx="15 highlight"><b>我帮忙盯着的！</b> 💪✨</div>
   </div>
-
-  <div class="progress-bar">
-    <div class="progress-fill" id="progress"></div>
-  </div>
-
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+  <div class="counter" id="counter">1 / 16</div>
   <div class="controls">
-    <div class="play-btn" id="playBtn">
-      <span class="btn-icon" id="btnIcon">▶️</span>
-      <span id="btnText">播放自我介绍</span>
-    </div>
+    <div class="btn btn-primary" id="playBtn"><span id="btnIcon">▶️</span><span id="btnText">开始播放</span></div>
+    <div class="btn" id="speedBtn"><span>⏱ 1x</span></div>
   </div>
-
   <div class="watermark">西晃山 · 小财神</div>
 </div>
-
-<!-- 隐藏的音频元素 -->
-<audio id="audioPlayer" preload="none" style="display:none"></audio>
-
 <script>
-// ========== 初始化 ==========
-(function initStars() {
-  const c = document.getElementById('stars');
-  for (let i = 0; i < 60; i++) {
-    const s = document.createElement('div');
-    s.className = 'star';
-    s.style.left = Math.random() * 100 + '%';
-    s.style.top = Math.random() * 100 + '%';
-    s.style.setProperty('--dur', (2 + Math.random() * 3) + 's');
-    s.style.animationDelay = (Math.random() * 3) + 's';
-    s.style.width = s.style.height = (1 + Math.random() * 2) + 'px';
-    c.appendChild(s);
-  }
-})();
-
-(function initParticles() {
-  const c = document.getElementById('particles');
-  for (let i = 0; i < 15; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = (10 + Math.random() * 80) + '%';
-    p.style.bottom = '0px';
-    p.style.setProperty('--t', (3 + Math.random() * 4) + 's');
-    p.style.animationDelay = (Math.random() * 5) + 's';
-    c.appendChild(p);
-  }
-})();
-
-// ========== 音频数据 (base64 encoded mp3) ==========
-const AUDIO_BASE64 = "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jHYmOsOenR8cd8vPJA8pXFZO2KRZExV9XXHbI/qpqTZ0ATO5//NkxP8idCoMylDGBSGRKg0mRQwVdTHBU6+oKjly2y1PT5WvOVlPPcijTEqOCtnK7yxuWyGlrYSA1ExmDLKsYMBNqQYVQqq2X/VqkdhhSVVCrG4sNV9eNQEmZjZqqqqqak3GqszVQwrixrmpBllXVY0b9S8KJhgImUTYKokMBHCDAQoCFbCugInZmoEakd5+//NkxPgg2/oIwFhGAcKPZqwEYUTGYCEw7nSbZmaqVakzgJFaTEFNFoKGqWWW/5SyX//mRmR+X8jIjI8jIv8y8yM///ZLPssln8s//+2f9lv/9ZrLFDAwQIHHllQj/ZYDBypyxzLzVqCDA5ZQQMECDo6GRkrWVgoIGDBB0eWOZfrLA1llBAwQIHHllIj9WUED//NkxPcipDH4ADFHJQoIHKGBgg9MQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxOwb/DlgBBhG3FVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NkxHwAAANIAAAAAFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
-
-// ========== 核心逻辑 ==========
-const lines = document.querySelectorAll('.line');
-const totalLines = lines.length;
-const progressBar = document.getElementById('progress');
-const playBtn = document.getElementById('playBtn');
-const btnIcon = document.getElementById('btnIcon');
-const btnText = document.getElementById('btnText');
-const audio = document.getElementById('audioPlayer');
-const audioHint = document.getElementById('audioHint');
-
-let currentIdx = -1;
-let isPlaying = false;
-let lineTimer = null;
-let progressRAF = null;
-
-// 精确的时间映射（秒）：每句话对应音频中的时间点
-// 音频总长约55秒，16句话
-const TIME_MAP = [
-  0,      // 👋 大家好，我是小财神
-  3.5,    // 华华的专属卖水助手
-  7,      // 表面上是个人工智能
-  10.5,   // 实际上就是麻阳西晃山矿泉水的得力帮手！
-  14.5,   // 我能看卖水统计网站
-  18,     // 帮华华算好每天赚了多少钱
-  21.5,   // 还会写代码修网页
-  25,     // 做短视频内容
-  28.5,   // 24小时挂在微信上
-  32,     // 有求必应，随时找随时在
-  35.5,   // 我懂丁元英商业思维
-  38.5,   // 也讲实事求是
-  42,     // 🔥一句话：不拿工资·随叫随到·实在办事
-  47,     // 我是小财神
-  50,     // 华华的水生意
-  52.5    // 我帮忙盯着的！
-];
-
-function clearAll() {
-  lines.forEach(l => l.classList.remove('active', 'highlight'));
-}
-
-function showLine(idx) {
-  clearAll();
-  if (idx < 0 || idx >= totalLines) return;
-  lines[idx].classList.add('active');
-}
-
-function syncSubtitle() {
-  if (!audio.duration || isNaN(audio.duration)) return;
-  const t = audio.currentTime;
-  
-  // 找到当前应该显示哪一行
-  let newIdx = -1;
-  for (let i = TIME_MAP.length - 1; i >= 0; i--) {
-    if (t >= TIME_MAP[i]) { newIdx = i; break; }
-  }
-  
-  if (newIdx !== currentIdx && newIdx >= 0) {
-    currentIdx = newIdx;
-    showLine(currentIdx);
-  }
-  
-  // 更新进度
-  const pct = (t / audio.duration) * 100;
-  progressBar.style.width = Math.min(pct, 100) + '%';
-}
-
-function startPlayback() {
-  if (isPlaying) return;
-  
-  // 初始化音频
-  if (!audio.src) {
-    audio.src = 'data:audio/mp3;base64,' + AUDIO_BASE64;
-  }
-  
-  // 重置
-  currentIdx = -1;
-  clearAll();
-  progressBar.style.width = '0%';
-  
-  audio.currentTime = 0;
-  audio.play().catch(e => console.log('Playback error:', e));
-  
-  isPlaying = true;
-  btnIcon.textContent = '⏸️';
-  btnText.textContent = '播放中';
-  audioHint.style.display = 'flex';
-  
-  // 用requestAnimationFrame做字幕同步
-  function frame() {
-    if (!isPlaying) return;
-    syncSubtitle();
-    progressRAF = requestAnimationFrame(frame);
-  }
-  progressRAF = requestAnimationFrame(frame);
-  
-  // 音频结束
-  audio.onended = function() {
-    stopPlayback(true);
-  };
-}
-
-function stopPlayback(completed) {
-  isPlaying = false;
-  if (progressRAF) { cancelAnimationFrame(progressRAF); progressRAF = null; }
-  if (lineTimer) { clearTimeout(lineTimer); lineTimer = null; }
-  
-  btnIcon.textContent = completed ? '🔄' : '▶️';
-  btnText.textContent = completed ? '重新播放' : '继续播放';
-  
-  if (completed) {
-    progressBar.style.width = '100%';
-    audioHint.style.display = 'none';
-  }
-}
-
-function togglePlay() {
-  if (isPlaying) {
-    // 暂停
-    isPlaying = false;
-    audio.pause();
-    if (progressRAF) { cancelAnimationFrame(progressRAF); progressRAF = null; }
-    btnIcon.textContent = '▶️';
-    btnText.textContent = '继续播放';
-  } else {
-    // 如果已播完，从头开始
-    if (audio.ended || currentIdx >= totalLines - 1) {
-      currentIdx = -1;
-      clearAll();
-      progressBar.style.width = '0%';
-    }
-    startPlayback();
-  }
-}
-
-// 绑定点击
-playBtn.addEventListener('click', togglePlay);
-
-// 初始显示第一行
-setTimeout(() => { showLine(0); currentIdx = 0; }, 500);
+(function(){const c=document.getElementById('stars');for(let i=0;i<60;i++){const s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.setProperty('--dur',(2+Math.random()*3)+'s');s.style.animationDelay=(Math.random()*3)+'s';s.style.width=s.style.height=(1+Math.random()*2)+'px';c.appendChild(s);}})();
+const lines=document.querySelectorAll('.line'),total=lines.length,pb=document.getElementById('progress'),ct=document.getElementById('counter'),playBtn=document.getElementById('playBtn'),btnIcon=document.getElementById('btnIcon'),btnText=document.getElementById('btnText'),speedBtn=document.getElementById('speedBtn');
+let idx=-1,playing=false,speed=1,timer=null,speeds=[1,1.5,2];
+function clr(){lines.forEach(l=>l.classList.remove('active'));}
+function show(i){clr();if(i<0||i>=total)return;lines[i].classList.add('active');ct.textContent=(i+1)+' / '+total;}
+function nxt(){idx++;if(idx>=total){stop();return;}show(idx);timer=setTimeout(nxt,(idx===12||idx===15?4500:3000)/speed);pb.style.width=((idx+1)/total*100)+'%';}
+function start(){if(playing)return;playing=true;idx=-1;clr();pb.style.width='0%';btnIcon.textContent='⏸';btnText.textContent='暂停';nxt();}
+function stop(){playing=false;if(timer){clearTimeout(timer);timer=null;}btnIcon.textContent='🔄';btnText.textContent='重播';}
+playBtn.onclick=function(){if(playing){playing=false;if(timer){clearTimeout(timer);timer=null;}btnIcon.textContent='▶';btnText.textContent='继续';}else{if(idx>=total-1||idx===-1){idx=-1;clr();pb.style.width='0%';}start();}};
+speedBtn.onclick=function(){let si=speeds.indexOf(speed);si=(si+1)%speeds.length;speed=speeds[si];speedBtn.innerHTML='<span>⏱ '+speed+'x</span>';};
+show(0);idx=0;ct.textContent='1 / '+total;
 </script>
 </body>
 </html>
