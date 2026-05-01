@@ -3,96 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>小财神自我介绍</title>
+<title>小财神 · 对话版</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    background: linear-gradient(145deg, #0a0e27 0%, #1a1f4e 40%, #0d1b3e 100%);
-    min-height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden;
-  }
-  .container {
-    width: 100%; max-width: 400px; height: 100vh; max-height: 750px;
-    background: linear-gradient(180deg, #0d1233 0%, #151b4a 50%, #0d1233 100%);
-    position: relative; overflow: hidden;
-  }
-  @media (min-width: 420px) { .container { border-radius: 30px; height: 640px; } }
-  .stars { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; }
-  .star { position: absolute; background: #fff; border-radius: 50%; animation: twinkle var(--dur) ease-in-out infinite alternate; }
-  @keyframes twinkle { 0% { opacity: 0.2; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1.2); } }
-  .glow-top { position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 400px; height: 300px; background: radial-gradient(ellipse, rgba(80,140,255,0.12) 0%, transparent 70%); pointer-events: none; }
-  .glow-bot { position: absolute; bottom: -80px; left: 50%; transform: translateX(-50%); width: 350px; height: 250px; background: radial-gradient(ellipse, rgba(100,200,255,0.08) 0%, transparent 70%); pointer-events: none; }
-  .avatar-section { position: absolute; top: 8%; left: 50%; transform: translateX(-50%); text-align: center; z-index: 2; }
-  .avatar-ring { width: 110px; height: 110px; border-radius: 50%; background: conic-gradient(from 0deg, #4f8cff, #7f5af0, #4f8cff, #7f5af0, #4f8cff); padding: 3px; animation: spin-ring 4s linear infinite; margin: 0 auto; }
-  @keyframes spin-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-  .avatar-inner { width: 100%; height: 100%; border-radius: 50%; background: #0d1233; display: flex; align-items: center; justify-content: center; font-size: 44px; animation: float 3s ease-in-out infinite; }
-  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-  .avatar-inner .emoji { animation: pulse-glow 2s ease-in-out infinite; }
-  @keyframes pulse-glow { 0%,100% { filter: drop-shadow(0 0 8px rgba(100,180,255,0.3)); } 50% { filter: drop-shadow(0 0 20px rgba(100,180,255,0.8)); } }
-  .title { margin-top: 14px; color: #e8eeff; font-size: 22px; font-weight: 700; letter-spacing: 3px; text-shadow: 0 0 20px rgba(100,160,255,0.3); }
-  .subtitle { color: rgba(180,200,255,0.6); font-size: 12px; margin-top: 4px; letter-spacing: 2px; }
-  .subtitle-area { position: absolute; top: 36%; left: 0; right: 0; padding: 0 24px; z-index: 2; height: 42%; display: flex; flex-direction: column; justify-content: center; }
-  .line { margin-bottom: 4px; opacity: 0; transform: translateY(20px) scale(0.95); transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); color: rgba(220,235,255,0.9); font-size: 17px; line-height: 1.7; text-align: center; font-weight: 500; text-shadow: 0 2px 10px rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 8px; }
-  .line.active { opacity: 1; transform: translateY(0) scale(1); }
-  .line.highlight { color: #ffd866; font-size: 18px; font-weight: 700; }
-  .progress-bar { position: absolute; bottom: 18%; left: 40px; right: 40px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; z-index: 2; }
-  .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #4f8cff, #7f5af0, #4f8cff); background-size: 200% 100%; animation: progress-shimmer 2s linear infinite; border-radius: 2px; transition: width 0.1s linear; }
-  @keyframes progress-shimmer { 0% { background-position: 0% 0%; } 100% { background-position: 200% 0%; } }
-  .controls { position: absolute; bottom: 7%; left: 0; right: 0; text-align: center; z-index: 2; display: flex; gap: 16px; justify-content: center; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border: 1px solid rgba(100,160,255,0.3); border-radius: 25px; background: rgba(255,255,255,0.05); color: rgba(200,220,255,0.8); font-size: 14px; backdrop-filter: blur(10px); cursor: pointer; transition: all 0.3s; user-select: none; -webkit-tap-highlight-color: transparent; }
-  .btn:active { background: rgba(100,160,255,0.15); }
-  .btn-primary { background: rgba(100,160,255,0.15); border-color: rgba(100,160,255,0.5); }
-  .watermark { position: absolute; bottom: 2%; left: 0; right: 0; text-align: center; font-size: 10px; color: rgba(255,255,255,0.15); z-index: 1; letter-spacing: 1px; }
-  .counter { position: absolute; bottom: 24%; left: 0; right: 0; text-align: center; z-index: 2; color: rgba(180,200,255,0.4); font-size: 12px; letter-spacing: 2px; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'PingFang SC','Microsoft YaHei',sans-serif;
+  background:linear-gradient(145deg,#0a0e27,#1a1f4e 40%,#0d1b3e);
+  min-height:100vh;display:flex;justify-content:center;align-items:center;overflow:hidden
+}
+.container{
+  width:100%;max-width:400px;height:100vh;max-height:750px;
+  background:linear-gradient(180deg,#0d1233,#151b4a 50%,#0d1233);
+  position:relative;overflow:hidden
+}
+@media(min-width:420px){.container{border-radius:30px;height:640px}}
+.stars{position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle var(--dur) ease-in-out infinite alternate}
+@keyframes twinkle{0%{opacity:.2;transform:scale(.8)}100%{opacity:1;transform:scale(1.2)}}
+.glow-top{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:400px;height:300px;background:radial-gradient(ellipse,rgba(80,140,255,.12) 0%,transparent 70%);pointer-events:none}
+.glow-bot{position:absolute;bottom:-80px;left:50%;transform:translateX(-50%);width:350px;height:250px;background:radial-gradient(ellipse,rgba(100,200,255,.08) 0%,transparent 70%);pointer-events:none}
+
+/* 双头像 */
+.avatars{
+  position:absolute;top:6%;left:0;right:0;display:flex;justify-content:space-around;padding:0 20px;z-index:2
+}
+.avatar-box{text-align:center;width:100px}
+.avatar-ring{
+  width:70px;height:70px;border-radius:50%;
+  background:conic-gradient(from 0deg,#4f8cff,#7f5af0,#4f8cff,#7f5af0,#4f8cff);
+  padding:2.5px;animation:spin-ring 4s linear infinite;margin:0 auto
+}
+@keyframes spin-ring{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.avatar-inner{
+  width:100%;height:100%;border-radius:50%;background:#0d1233;
+  display:flex;align-items:center;justify-content:center;font-size:26px;
+  animation:float 3s ease-in-out infinite
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.avatar-name{color:rgba(180,200,255,.6);font-size:10px;margin-top:4px;letter-spacing:1px}
+
+/* 对话气泡区 */
+.chat-area{
+  position:absolute;top:28%;left:0;right:0;padding:0 20px;z-index:2;
+  height:50%;display:flex;flex-direction:column;justify-content:center;gap:8px
+}
+.bubble{
+  opacity:0;transform:translateY(15px) scale(.95);
+  transition:all .5s cubic-bezier(.34,1.56,.64,1);
+  padding:12px 16px;border-radius:16px;font-size:16px;line-height:1.6;
+  max-width:85%;position:relative;font-weight:500
+}
+.bubble.active{opacity:1;transform:translateY(0) scale(1)}
+.bubble.q{
+  align-self:flex-start;background:rgba(255,255,255,.08);
+  color:rgba(200,220,255,.9);border-bottom-left-radius:4px;
+  border:1px solid rgba(255,255,255,.05)
+}
+.bubble.q::before{content:'❓';position:absolute;top:-14px;left:4px;font-size:12px;opacity:.5}
+.bubble.a{
+  align-self:flex-end;background:rgba(100,160,255,.12);
+  color:#e8eeff;border-bottom-right-radius:4px;
+  border:1px solid rgba(100,160,255,.15)
+}
+.bubble.a::after{content:'🤖';position:absolute;top:-14px;right:4px;font-size:12px;opacity:.7}
+
+/* 进度 */
+.progress-bar{
+  position:absolute;bottom:16%;left:40px;right:40px;height:3px;
+  background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;z-index:2
+}
+.progress-fill{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,#4f8cff,#7f5af0,#4f8cff);background-size:200% 100%;
+  animation:progress-shimmer 2s linear infinite;border-radius:2px;transition:width .1s linear
+}
+@keyframes progress-shimmer{0%{background-position:0}100%{background-position:200% 0}}
+  
+.controls{
+  position:absolute;bottom:7%;left:0;right:0;text-align:center;z-index:2
+}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 28px;
+  border:1px solid rgba(100,160,255,.3);border-radius:25px;
+  background:rgba(100,160,255,.1);color:rgba(200,220,255,.9);font-size:14px;
+  backdrop-filter:blur(10px);cursor:pointer;transition:all .3s;user-select:none;
+  -webkit-tap-highlight-color:transparent
+}
+.btn:active{background:rgba(100,160,255,.2)}
+.watermark{position:absolute;bottom:2%;left:0;right:0;text-align:center;font-size:10px;color:rgba(255,255,255,.12);z-index:1;letter-spacing:1px}
+.counter{position:absolute;bottom:21%;left:0;right:0;text-align:center;z-index:2;color:rgba(180,200,255,.35);font-size:11px;letter-spacing:2px}
 </style>
 </head>
 <body>
-<div class="container" id="app">
+<div class="container">
   <div class="stars" id="stars"></div>
   <div class="glow-top"></div>
   <div class="glow-bot"></div>
-  <div class="avatar-section">
-    <div class="avatar-ring"><div class="avatar-inner"><span class="emoji">🤖✨</span></div></div>
-    <div class="title">小财神</div>
-    <div class="subtitle">华华的专属卖水助手</div>
+
+  <!-- 双头像 -->
+  <div class="avatars">
+    <div class="avatar-box" id="avatarQ">
+      <div class="avatar-ring"><div class="avatar-inner" style="font-size:22px">👩</div></div>
+      <div class="avatar-name">问问题的人</div>
+    </div>
+    <div class="avatar-box" id="avatarA">
+      <div class="avatar-ring" style="background:conic-gradient(from 0deg,#ffd866,#ff8c42,#ffd866,#ff8c42,#ffd866)"><div class="avatar-inner" style="font-size:26px">🤖✨</div></div>
+      <div class="avatar-name">小财神</div>
+    </div>
   </div>
-  <div class="subtitle-area" id="subs">
-    <div class="line" data-idx="0">👋 <b>大家好</b>，我是<em style="color:#ffd866">小财神</em></div>
-    <div class="line" data-idx="1">华华的 <em style="color:#7fc8ff">专属卖水助手</em></div>
-    <div class="line" data-idx="2">表面上是个人工智能 🤖</div>
-    <div class="line" data-idx="3">实际上就是 <em style="color:#7fc8ff">麻阳西晃山矿泉水</em> 的得力帮手！</div>
-    <div class="line" data-idx="4">我能看卖水统计网站 🧮</div>
-    <div class="line" data-idx="5">帮华华算好每天赚了多少钱 💰</div>
-    <div class="line" data-idx="6">还会 <em style="color:#7fc8ff">写代码修网页</em> 💻</div>
-    <div class="line" data-idx="7">做短视频内容 🎬</div>
-    <div class="line" data-idx="8">24小时挂在微信上 📱</div>
-    <div class="line" data-idx="9"><b>有求必应，随时找随时在</b></div>
-    <div class="line" data-idx="10">我懂 <em style="color:#ffd866">丁元英商业思维</em> 🧠</div>
-    <div class="line" data-idx="11">也讲 <em style="color:#7fc8ff">实事求是</em>，能搞就搞，搞不了直说</div>
-    <div class="line" data-idx="12 highlight">🔥 一句话：不拿工资·随叫随到·实在办事</div>
-    <div class="line" data-idx="13">我是 <em style="color:#ffd866">小财神</em></div>
-    <div class="line" data-idx="14">华华的水生意 🚰</div>
-    <div class="line" data-idx="15 highlight"><b>我帮忙盯着的！</b> 💪✨</div>
+
+  <!-- 对话区域 -->
+  <div class="chat-area" id="chatArea">
+    <div class="bubble q" data-idx="0">小财神，你是谁呀？</div>
+    <div class="bubble a" data-idx="1">大家好，我是<em style="color:#ffd866">小财神</em>，华华的<em style="color:#7fc8ff">专属卖水助手</em></div>
+    <div class="bubble q" data-idx="2">那你是干什么的呀？</div>
+    <div class="bubble a" data-idx="3">我能看卖水网站帮华华算账🧮，<br>会<em style="color:#7fc8ff">写代码修网页</em>💻，<br>还能做短视频内容🎬，<br>24小时挂在微信上📱，<br><b>有问题随时找我</b></div>
+    <div class="bubble q" data-idx="4">那你有什么本事呀？</div>
+    <div class="bubble a" data-idx="5">我懂<em style="color:#ffd866">丁元英那套商业思维</em>🧠，<br>也讲<em style="color:#7fc8ff">实事求是</em>，<br>能搞就搞，搞不了直说，<br><b>不拿工资·随叫随到·实在办事</b></div>
+    <div class="bubble q" data-idx="6">最后再说一句吧</div>
+    <div class="bubble a highlight" data-idx="7" style="background:rgba(255,216,102,.15);border-color:rgba(255,216,102,.3);color:#ffd866;font-size:17px;font-weight:700">我是<em style="color:#fff">小财神</em>，<br>华华的<b>水生意</b> 🚰<br><b style="font-size:19px">我帮忙盯着的！💪✨</b></div>
   </div>
+
   <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
-  <div class="counter" id="counter">1 / 16</div>
+  <div class="counter" id="counter">0 / 8</div>
+
   <div class="controls">
-    <div class="btn btn-primary" id="playBtn"><span id="btnIcon">▶️</span><span id="btnText">开始播放</span></div>
-    <div class="btn" id="speedBtn"><span>⏱ 1x</span></div>
+    <div class="btn" id="playBtn"><span id="btnIcon">▶️</span><span id="btnText">开始播放</span></div>
   </div>
   <div class="watermark">西晃山 · 小财神</div>
 </div>
+
 <script>
-(function(){const c=document.getElementById('stars');for(let i=0;i<60;i++){const s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.setProperty('--dur',(2+Math.random()*3)+'s');s.style.animationDelay=(Math.random()*3)+'s';s.style.width=s.style.height=(1+Math.random()*2)+'px';c.appendChild(s);}})();
-const lines=document.querySelectorAll('.line'),total=lines.length,pb=document.getElementById('progress'),ct=document.getElementById('counter'),playBtn=document.getElementById('playBtn'),btnIcon=document.getElementById('btnIcon'),btnText=document.getElementById('btnText'),speedBtn=document.getElementById('speedBtn');
-let idx=-1,playing=false,speed=1,timer=null,speeds=[1,1.5,2];
-function clr(){lines.forEach(l=>l.classList.remove('active'));}
-function show(i){clr();if(i<0||i>=total)return;lines[i].classList.add('active');ct.textContent=(i+1)+' / '+total;}
-function nxt(){idx++;if(idx>=total){stop();return;}show(idx);timer=setTimeout(nxt,(idx===12||idx===15?4500:3000)/speed);pb.style.width=((idx+1)/total*100)+'%';}
-function start(){if(playing)return;playing=true;idx=-1;clr();pb.style.width='0%';btnIcon.textContent='⏸';btnText.textContent='暂停';nxt();}
-function stop(){playing=false;if(timer){clearTimeout(timer);timer=null;}btnIcon.textContent='🔄';btnText.textContent='重播';}
-playBtn.onclick=function(){if(playing){playing=false;if(timer){clearTimeout(timer);timer=null;}btnIcon.textContent='▶';btnText.textContent='继续';}else{if(idx>=total-1||idx===-1){idx=-1;clr();pb.style.width='0%';}start();}};
-speedBtn.onclick=function(){let si=speeds.indexOf(speed);si=(si+1)%speeds.length;speed=speeds[si];speedBtn.innerHTML='<span>⏱ '+speed+'x</span>';};
+// 星星
+(function(){const c=document.getElementById('stars');for(let i=0;i<60;i++){const s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.setProperty('--dur',(2+Math.random()*3)+'s');s.style.animationDelay=(Math.random()*3)+'s';s.style.width=s.style.height=(1+Math.random()*2)+'px';c.appendChild(s)}})();
+
+const bubbles=document.querySelectorAll('.bubble'),total=bubbles.length;
+const pb=document.getElementById('progress'),ct=document.getElementById('counter');
+const playBtn=document.getElementById('playBtn'),btnIcon=document.getElementById('btnIcon'),btnText=document.getElementById('btnText');
+
+// 预设音频URL（GitHub raw）
+const baseURL='https://raw.githubusercontent.com/popmyshu/intro-self/master/';
+const audioFiles=['q1.mp3','a1.mp3','q2.mp3','a2.mp3','q3.mp3','a3.mp3','q4.mp3','a4.mp3'];
+const audios=audioFiles.map(f=>{const a=new Audio(baseURL+f);a.preload='auto';return a});
+
+let idx=-1,playing=false,timer=null,currentAudio=null;
+
+function clr(){bubbles.forEach(b=>b.classList.remove('active'))}
+function show(i){
+  clr();if(i<0||i>=total)return;
+  bubbles[i].classList.add('active');
+  ct.textContent=(i+1)+' / '+total;
+  pb.style.width=((i+1)/total*100)+'%';
+}
+
+function playSegment(i){
+  if(i>=total){stop();return}
+  idx=i;show(i);
+  // 播放对应音频
+  if(currentAudio){currentAudio.pause();currentAudio.currentTime=0}
+  currentAudio=audios[i];
+  currentAudio.play().catch(e=>console.log('audio err:',e));
+  // 音频结束后播下一段
+  currentAudio.onended=()=>{playSegment(i+1)};
+}
+
+function start(){
+  if(playing)return;
+  playing=true;idx=-1;clr();pb.style.width='0%';
+  btnIcon.textContent='⏸';btnText.textContent='播放中';
+  playSegment(0);
+}
+
+function stop(){
+  playing=false;
+  if(currentAudio){currentAudio.pause();currentAudio.currentTime=0}
+  if(timer){clearTimeout(timer);timer=null}
+  btnIcon.textContent='🔄';btnText.textContent='重播';
+}
+
+playBtn.onclick=function(){
+  if(playing){
+    playing=false;
+    if(currentAudio){currentAudio.pause()}
+    if(timer){clearTimeout(timer);timer=null}
+    btnIcon.textContent='▶';btnText.textContent='继续';
+  }else{
+    if(idx>=total-1||idx===-1){idx=-1;clr();pb.style.width='0%'}
+    start();
+  }
+};
+
 show(0);idx=0;ct.textContent='1 / '+total;
 </script>
 </body>
